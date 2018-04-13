@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Log</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+		var username = getCookie("username") ,
+        password = getCookie("password");
+
+    function GoGo(){
+    	authUserVox('liza','qwertyqwe');
+    }
+
+function authUserVox(Username,Password){
+       $.ajax({
+            url:'../production/php/add_new_user-vox.php',
+            type:'POST',
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async:false,
+            data: JSON.stringify({username:Username,password:Password}),
+            success: function(res) {
+                username = res.first_name;
+                password = res.password;
+                document.cookie = "username=" +  res.first_name;
+                //document.cookie = "last_name=" + res.last_name;
+                document.cookie = "password="  + res.password;
+            }
+       });
+}
+
+function getCookie(name) {
+  var matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+</script>
+</head>
+<body>
+	
+
+<div class="g"><p>asd</p></div>
+</body>
+</html>

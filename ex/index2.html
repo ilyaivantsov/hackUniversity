@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Connect</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-dialog.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-dialog.js"></script>
+
+	<script type="text/javascript" src="//cdn.voximplant.com/edge/voximplant.min.js"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8" id="voximplant_container">
+				
+			</div>
+			<div class="col-md-4">
+				<div id="log"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8" id="voximplant_container-income"></div>
+			<div class="col-md-4">
+			<div class="input-wrapper">
+              <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input id="phonenum" type="text" class="form-control" placeholder="Username">
+              </div>
+            </div>
+            <div class="btn-group btn-group-justified">
+              <div class="btn-group">
+                <button id="creat-call" type="button" class="btn btn-success" id="callButton">Call</button>
+                <button type="button" class="btn btn-default" id="fsButton">Enter fullscreen</button>
+              </div>
+           </div>
+     </div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/app-ori.js"></script>
+	<script type="text/javascript">
+      $(document).ready(function(){        
+        $('#creat-call').click(function(){
+          createCall();
+        });
+    </script>
+</body>
+</html>

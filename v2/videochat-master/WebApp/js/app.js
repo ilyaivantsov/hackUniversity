@@ -55,8 +55,8 @@ try {
     micRequired: true, // force microphone/camera access request
     videoSupport: true, // enable video support 
     progressTone: true, // play progress tone
-    localVideoContainerId: "voximplant_container", // element id for local video from camera or screen sharing
-    remoteVideoContainerId: "voximplant_container"
+    localVideoContainerId: "voximplant_container-local", // element id for local video from camera or screen sharing
+    remoteVideoContainerId: "voximplant_container-remote"
   });
 } catch(e) {
   log(e);
@@ -137,7 +137,7 @@ function onAuthResult(e) {
   if (e.result) { 
     // Authorized successfully         
     dialog.close();
-    var title = $('.panel-title').html() + ': logged in as ' + first_name;
+    var title = $('.panel-title').html() + ': logged in as ' + first_name + ' '+last_name+'.';
     $('.panel-title').html(title);
     showLocalVideo(true);      
   } else {
@@ -214,7 +214,7 @@ function onIncomingCall(e) {
   currentCall.on(VoxImplant.CallEvents.Disconnected, onCallDisconnected);
   currentCall.on(VoxImplant.CallEvents.Failed, onCallFailed);
   currentCall.on(VoxImplant.CallEvents.MediaElementCreated, onMediaElement);
-  currentCall.on(VoxImplant.CallEvents.LocalVideoStreamAdded, onLocalVideoStream);
+  //currentCall.on(VoxImplant.CallEvents.LocalVideoStreamAdded, onLocalVideoStream);
   log("Incoming call from: "+currentCall.number());
   // Answer automatically
   currentCall.answer(null, {}, { receiveVideo: true, sendVideo: true });
